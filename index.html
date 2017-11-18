@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pergunte ao dev</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="57x57" href="/favIcons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favIcons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favIcons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favIcons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favIcons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favIcons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favIcons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favIcons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favIcons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favIcons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favIcons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favIcons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favIcons/favicon-16x16.png">
+    <link rel="manifest" href="/favIcons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/favIcons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <style media="screen">
+      html, body {
+        height:100%;
+        min-height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: 'Oswald', sans-serif;
+        color: #FFF;
+      }
+      #wrapper {
+        position: relative;
+        vertical-align: middle;
+        min-height: 100%;
+        font-size: 2.3em;
+        text-align: center;
+        color: #FFF;
+        overflow: auto;
+        height: auto;
+        background-color: #7db9e8;
+        background: -moz-linear-gradient(top, #7db9e8 0%, #2989d8 12%, #0f0f0f 100%);
+        background: -webkit-linear-gradient(top, #7db9e8 0%,#2989d8 12%,#0f0f0f 100%);
+        background: linear-gradient(to bottom, #7db9e8 0%,#2989d8 12%,#0f0f0f 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#0f0f0f',GradientType=0 );
+      }
+      button {
+        background-color: #26a69a;
+        min-width: 120px;
+        color: inherit;
+        width: auto;
+        border: none;
+        background-image: none;
+        vertical-align: middle;
+        text-align: center;
+        padding: 0.3em;
+        outline: none;
+        border-radius: 5px;
+        height: 1.5em;
+        font-size: 1.5em;
+        font-weight: bold;
+        display: block;
+        margin: 0 auto;
+        -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+      }
+      button:hover {
+        cursor: pointer;
+        color: #F0F0F0;
+        background-color: #00A6A8;
+      }
+      button:active {
+        background-color: rgba(81, 203, 238, 1);
+      }
+      button:disabled{
+        background-color: #DDDDDD;
+        color:#666666;
+      }
+      label {
+        font-size: 1.5em;
+        display: block;
+        text-align: center;
+        margin-bottom: 1em;
+        color: inherit;
+      }
+      #innerContainer {
+        vertical-align: middle;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%)
+      }
+      input {
+        background-color: inherit;
+        border: 0;
+        border-bottom: 2px solid #47687F;
+        outline: none;
+        font-size: 1em;
+        color: inherit;
+        margin: 0 auto;
+        margin-bottom: 1em;
+        width: 50%;
+      }
+      input:focus {
+        border-bottom: 2px solid #3FA9F5;
+      }
+      #logo {
+        height: 10vh;
+        margin-bottom: 2rem;
+      }
+      i.fa:hover {
+        cursor: pointer;
+      }
+      #feedBack {
+        margin: 0;
+        margin-bottom: 1em;
+      }
+      .hasError  {
+        color: #E75854;
+      }
+      .hasSuccess {
+        color: #3BB86C;
+      }
+      .iconButtons {
+        height: 1em;
+        font-size: 1em;
+        margin-bottom: 0.3rem;
+        text-align: left;
+      }
+      .iconButtons:hover {
+        color: #00A6A8;
+        cursor: pointer;
+      }
+      #accessContainer {
+        margin: 0 auto;
+      }
+      #questionsContainer {
+        display: none;
+      }
+      a, a:hover, a:visited {
+        text-decoration: none;
+        color: inherit;
+      }
+      a:hover {
+        color: #00A6A8;
+      }
+      footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        border-top: 2px solid #00A6A8;
+        font-size: 2.2rem;
+        background-color: #000;
+      }
+      footer > p {
+        text-align: center;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="innerContainer">
+        <img src="DevW_blue.png" alt="logo" id="logo" />
+        <br />
+        <div id="accessContainer">
+            <p>Faça o login para enviar sua pergunta.</p>
+            <span class="iconButtons" onClick="authenticateWithFacebook()">
+              <i class="fa fa-facebook-official" aria-hidden="true"></i> Entre com o Facebook
+            </span>
+            <br />
+            <span class="iconButtons" onclick="authenticateWithGoogle()">
+              <i class="fa fa-google" aria-hidden="true"></i> Entre com o Google
+            </span>
+            <p id="authenticationFeedBack"></p>
+        </div>
+        <div id="questionsContainer">
+          <label for="question">Qual sua pergunta, <span id="userName"></span>?</label>
+          <input id="question" onfocus="clearMessage()" onKeyUp="checkEnter(event)"></input>
+          <p id="feedBack"></p>
+          <button id="sendButton" onClick="sendMessage()">Enviar</button>
+        </div>
+      </div>
+      <footer>
+        <p>Nos siga no
+          <a href="https://www.facebook.com/pg/pergunteAoDev">
+            <i class="fa fa-facebook-official" aria-hidden="true"></i>
+            Facebook
+          </a>
+          e no
+          <a href="https://medium.com/pergunteaodev">
+            <i class="fa fa-medium" aria-hidden="true"></i>
+            Medium
+          </a>
+        </p>
+      </footer>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+    <script>
+        var authenticated = false
+        var sending = false
+        var lastQuestion = null
+        var userAuthData = {}
+        var fbProvider = new firebase.auth.FacebookAuthProvider()
+        var googleProvider = new firebase.auth.GoogleAuthProvider()
+        var config = {
+          apiKey: "AIzaSyDKXQ3XkYrJHDOZD4QbUVmI962c8tY35KE",
+          authDomain: "pergunteaodev.firebaseapp.com",
+          databaseURL: "https://pergunteaodev.firebaseio.com",
+          projectId: "pergunteaodev",
+          storageBucket: "",
+          messagingSenderId: "974289796926"
+        }
+        firebase.initializeApp(config)
+        var databaseRef = firebase.database().ref().child('questions')
+        const createdAt = firebase.database.ServerValue.TIMESTAMP
+        function checkEnter (event) {
+          if (event.key === "Enter") {
+            sendMessage()
+          }
+        }
+        function clearMessage () {
+          feedBack.innerHTML = ''
+          feedBack.className = ''
+        }
+        function setError (message) {
+          enableButton()
+          var feedBack = document.getElementById('feedBack')
+          feedBack.innerHTML = message
+          feedBack.className = 'hasError'
+        }
+        function setSuccessFeedback (message) {
+          enableButton()
+          var feedBack = document.getElementById('feedBack')
+          feedBack.innerHTML = message
+          feedBack.className = 'hasSuccess'
+        }
+        function handleAuthentication (authData) {
+          console.log(authData)
+          document.getElementById('accessContainer').style.display= 'none'
+          document.getElementById('questionsContainer').style.display= 'block'
+          authenticated = true
+          userAuthData = authData
+          document.getElementById('userName').innerHTML = authData.user.displayName
+        }
+        function handleAuthenticationError (error) {
+          var feedBack = document.getElementById('authenticationFeedBack')
+          feedBack.innerHTML = 'Erro ao fazer login, tente novamente por favor.'
+          feedBack.className = 'hasError'
+          console.log({error})
+        }
+        function onAuthentication () {
+          var feedBack = document.getElementById('authenticationFeedBack')
+          feedBack.innerHTML = ''
+          feedBack.className = ''
+
+        }
+        function authenticateWithFacebook () {
+          onAuthentication()
+          firebase.auth()
+            .signInWithPopup(fbProvider)
+            .then(handleAuthentication)
+            .catch(handleAuthenticationError)
+        }
+        function authenticateWithGoogle () {
+          onAuthentication()
+          firebase.auth()
+            .signInWithPopup(googleProvider)
+            .then(handleAuthentication)
+            .catch(handleAuthenticationError)
+        }
+        function logout () {
+          document.getElementById('accessContainer').style.display= 'block'
+          document.getElementById('questionsContainer').style.display= 'none'
+          authenticated = true
+          userAuthData = authData
+      }
+      function enableButton () {
+        document.getElementById('sendButton').disabled = false
+        document.getElementById('sendButton').innerHTML = 'Enviar'
+      }
+      function idleButton () {
+        document.getElementById('sendButton').disabled = true
+        document.getElementById('sendButton').innerHTML = 'Enviando...'
+      }
+      function sendMessage () {
+        idleButton()
+        var feedBack = document.getElementById('feedBack')
+        var question = document.getElementById("question").value.trim()
+        if (!question || question.length === 0){
+          setError('Insira uma pergunta')
+          return
+        }
+        if (question === lastQuestion) {
+          setError('Você já perguntou isso....')
+          return
+        }
+        lastQuestion = question
+        if (!authenticated) {
+          setError('Logue, por favor')
+          return
+        }
+        if (sending) {
+          return
+        }
+        sending = true
+        newMessageRef = databaseRef.push()
+        var displayName = userAuthData.user.displayName
+        var email = userAuthData.user.email
+        if (!email && userAuthData.user.providerData) {
+          userAuthData.user.providerData.some(function (data) {
+            email = data.email
+            return data.email && data.email !== ''
+          })
+        }
+        newMessageRef.set({question, createdAt, displayName, email}, (err) => {
+          sending = false
+          if (!err) {
+            setSuccessFeedback('Pergunta enviada!')
+          } else {
+            setError('Algo deu errado, tente novamente mais tarde ;)')
+          }
+        })
+      }
+    </script>
+  </body>
+</html>
